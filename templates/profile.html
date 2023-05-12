@@ -1,0 +1,26 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container jumbotron" style=" background-color: #becde5;">
+		<p style="font-size: 25px"><strong style="font-variant: small-caps; ">Nome</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{result['name']}}</p>
+		<br>
+		<p style="font-size: 25px"><strong style="font-variant: small-caps;">Nome de Usuário</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{result['username']}}</p>
+		<br>
+		{% if result['profile']==1 %}
+		<p style="font-size: 25px"><strong style="font-variant: small-caps;">Cargo</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Dono(a)</p>
+		{% else %}
+			{% if result['profile']==2 %}
+			<p style="font-size: 25px"><strong style="font-variant: small-caps;">Cargo</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Secretaria</p>
+			{% else %}
+				{% if result['profile']==3 %}
+				<p style="font-size: 25px"><strong style="font-variant: small-caps;">Cargo</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Professor(a)</p>
+				{% else %}
+				<p style="font-size: 25px"><strong style="font-variant: small-caps;">Cargo</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;Aluno(a)</p>
+				{% endif %}
+			{% endif %}
+		{% endif %}
+		<br>
+		<p style="font-size: 25px"><strong style="font-variant: small-caps;">Número de Telefone</strong>&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;{{result['phone']}}</p>
+		<br>
+	</div>
+{% endblock %}

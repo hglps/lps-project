@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container">
+		<h1><small class="text-white">Bem-vindo(a),<span class="font-weight-bold" style="color: #fff"> {{session.username}}</span></h1>
+    <div class="jumbotron" style="background-color: #e69b00;">
+		<h1 style="font-variant: small-caps;">Livro</h1>
+    <div class="jumbotron" style="background-color: #0000;">
+		{% for each in livros %}
+			<p style="font-size: 20px " class="font-italic">{{each['name']}}&nbsp;&nbsp;<strong>x{{each['count']}}</strong></p>
+		{% endfor %}
+    </div>
+    </div>
+
+
+    <div class="jumbotron" style="background-color: #e47200;">
+    <h1 style="font-variant: small-caps;">Avaliação</h1>
+    <div style="font-size: 20px" class="font-italic">
+	{% from "includes/_formhelpers.html" import render_field %}
+  	<form method="POST" action="">
+    <div class="form-group" >
+      {{render_field(form.name, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.date, class_="form-control")}}
+    </div>
+    <div class="form-group">
+      {{render_field(form.report, class_="form-control")}}
+    </div>
+    <div class="form-group" >
+      {{render_field(form.rate, class_="form-control")}}
+    </div>
+    <p><input type="submit" class="btn btn-primary" value="Submit"></p>
+  </form>
+  </div>
+  </div>
+  <br>
+  <br>
+
+
+  <div class="jumbotron" style="background-color: #74b72e;">
+  <h1 style="font-variant: small-caps;">Alunos que estudam contigo</h1>
+  <br>
+  {% for each in alunos %}
+    <a href="{{url_for('aluno_dash', username = each['username'])}}"><button type="button" class="btn btn-outline-dark">{{each['username']}}</button></a>
+    <br>
+    <br>
+  {% endfor %}
+  </div>
+
+
+  <div class="jumbotron" style="background-color: #5dbb63">
+  <div class="form-group">
+      <a href = "{{url_for('updatePlans')}}"><button type ="button" class="btn btn-secondary btn-lg" >Atualizar Planos de Estudo</button></a>
+    </div>
+  </div>
+  </div>
+{% endblock %}

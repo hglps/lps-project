@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+	<div class="container jumbotron" style="margin:auto;">
+		<h1><small>Bem-vindo(a), <span class="font-weight-bold" style="color: #333333"> {{session.username}}</span></h1>
+		</p></p>	
+		<div class="form-group">
+			<a href = "{{url_for('add_professor')}}"><button type ="button" class="btn btn-outline-info btn-lg btn-size" >Adicionar Professor</button></a>
+			<a href = "{{url_for('delete_professor')}}"><button type ="button" class="btn btn-outline-danger btn-lg btn-size" >Remover Professor</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('add_secretaria')}}"><button type ="button" class="btn btn-outline-info btn-lg btn-size" >Adicionar Secretaria</button></a>
+			<a href = "{{url_for('delete_secretaria')}}"><button type ="button" class="btn btn-outline-danger btn-lg btn-size" >Remover Secretaria</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('add_livro')}}"><button type ="button" class="btn btn-outline-info btn-lg btn-size" >Adicionar Livro</button></a>
+			<a href = "{{url_for('remove_livro')}}"><button type ="button" class="btn btn-outline-danger btn-lg btn-size" >Remover Livro</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('add_aluno')}}"><button type ="button" class="btn btn-outline-info btn-lg btn-size" >Adicionar Aluno</button></a>
+			<a href = "{{url_for('delete_aluno')}}"><button type ="button" class="btn btn-outline-danger btn-lg btn-size" >Remover Aluno</button></a>
+		</div>
+		<div class="form-group">
+			<a href = "{{url_for('viewDetails')}}"><button type ="button" class="btn btn-outline-secondary btn-lg btn-size2">Ver detalhes</button></a>
+		</div>
+	</div>
+{% endblock %}
